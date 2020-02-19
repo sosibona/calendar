@@ -4,11 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js" integrity="sha256-MAgcygDRahs+F/Nk5Vz387whB4kSK9NXlDN3w58LLq0=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
-  <h1>Calendar will be here</h1>
+  <div class="calendar">
+    <header class="header">
+      <button class="button header__create"><i class="header__create_icon far fa-plus-square"></i>Create</button>
+      <button class="button header__today">Today</button>
+      <i class="header__angle fas fa-angle-left"></i>
+      <i class="header__angle fas fa-angle-right"></i>
+      <span class="header__month">February 2020</span>
+    </header>
+  </div>
   <script src="src/script/script.js" type="module"></script>
 </body>
 </html>

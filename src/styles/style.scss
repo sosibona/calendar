@@ -1,3 +1,50 @@
-h1 {
-  color: green;
+* {
+  box-sizing: border-box;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  color: #999;
+}
+
+.button {
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  background-color: #fff;
+  margin: 0 10px;
+  box-shadow: 1px 1px 1px 0px rgba(12, 124, 122, 0.5);
+  font-weight: 700;
+  color: #999;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  border: 1px solid #ccc;
+  align-items: center;
+  padding-left: 30px;
+
+  &__create {
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &_icon {
+      font-size: 20px;
+      color: blueviolet;
+    }
+  }
+
+  &__angle {
+    font-size: 30px;
+    color: #aaa;
+    margin: 10px;
+    cursor: pointer;
+  }
+
+  &__month {
+    font-size: 20px;
+    margin-left: 20px;
+  }
 }
