@@ -91,6 +91,7 @@
     margin-left: auto;
     margin-right: 10px;
     margin-top: 10px;
+    cursor: pointer;
   }
 
   &__input {
@@ -147,4 +148,26 @@
   width: 100%;
   padding-left: 50px;
   padding-right: 100px;  
+}
+
+//days
+
+.days {
+  display: flex;
+  margin-left: 20px;
+}
+
+//time
+
+.time {
+  width: 80px;
+  font-size: 12px;
+  color: #999;
+  // background-color: #aaa;
+  // height: 500px;
+}
+
+.time-in-day {
+  margin-top: 40px;
+  // border-bottom: 1px solid red;
 }
