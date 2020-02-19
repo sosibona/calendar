@@ -29,9 +29,8 @@
   justify-content: space-around;
   align-items: center;
 }
-.header__create_icon {
-  font-size: 20px;
-  color: blueviolet;
+.header__today {
+  border-radius: 5px;
 }
 .header__angle {
   font-size: 30px;
@@ -46,6 +45,19 @@
   font-size: 20px;
   margin-left: 20px;
   color: #999;
+}
+
+.navigation {
+  margin-left: 120px;
+  margin-right: 80px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.navigation__days {
+  color: #999;
+  text-transform: uppercase;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=style.css.map */
