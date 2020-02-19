@@ -2,7 +2,6 @@
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  color: #999;
 }
 
 .button {
@@ -41,10 +40,15 @@
     color: #aaa;
     margin: 10px;
     cursor: pointer;
+
+    &:hover {
+      color: #000;
+    }
   }
 
   &__month {
     font-size: 20px;
     margin-left: 20px;
+    color: #999;
   }
 }
