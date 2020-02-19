@@ -34,6 +34,22 @@
       <span class="navigation__days">Sat</span>
       <span class="navigation__days">Sun</span>
     </nav>
+    <div class="modal-form">
+      <i class="modal-form__icon-close far fa-times-circle"></i>
+      <input type="text" id="nameOfEvent" id="name" class="modal-form__input" placeholder="Event">
+      <div class="event__time">
+        <i class="modal-form__clock far fa-clock"></i>
+        <span class="event__date">1 february 2020</span>
+        <span class="event__time-start">12:30</span>
+        <span class="event__time-bettween">-</span>
+        <span class="event__time-end">13:30</span>
+      </div>
+      <div class="modal-form__additional-info">
+        <i class="modal-form__additional-info-icon fas fa-stream"></i>
+        <textarea class="modal-form__additional-info-text name="additional-info" id="info" cols="32" rows="5" placeholder="Additional informations"></textarea>
+      </div>
+      <button class="modal-form__button">Save</button>
+    </div>
   </div>
   <script src="src/script/script.js" type="module"></script>
 </body>
