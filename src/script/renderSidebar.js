@@ -41,8 +41,9 @@ const renderDayCell = () => {
 renderDayCell();
 
 
-function getMonday(){  
-  const curentDate = new Date();
+function getMonday(curentDate){  
+  const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
+
   const numberDayOfWeek = curentDate.getDay();
   const numberDayOfMonth = curentDate.getDate();
   const startWeek = curentDate;
@@ -50,14 +51,13 @@ function getMonday(){
   startWeek.setDate(numberDayOfMonth - numberDayOfWeek + 1)
   const dateOfMonday = startWeek.getDate();
   
-  const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
 
   for (let i = 0; i < dateOfMondayElem.length; i++) {
-    dateOfMondayElem[i].innerHTML = dateOfMonday + i;
+    dateOfMondayElem[i].innerHTML = startWeek.getDate(startWeek.setDate(dateOfMonday + i));
   }
 }
 
-getMonday();
+getMonday(new Date());
 
 function getCurentDay(){
   const curentDate = new Date();
@@ -67,4 +67,4 @@ function getCurentDay(){
   dateOfMondayElem[curentDayOfWeek - 1].classList.add('date-today');
   daysOfWeek[curentDayOfWeek - 1].classList.add('day-today');
 }
-getCurentDay()
+getCurentDay();
