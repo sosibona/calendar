@@ -1,0 +1,55 @@
+.days {
+  display: flex;
+  margin-left: 20px;
+  margin-top: 148px;
+}
+
+.time {
+  width: 80px;
+  font-size: 12px;
+  color: #999;
+}
+
+.time-in-day {
+  height: 55px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 1px;
+    background-color: #ccc;
+    top: 9px;
+    left: 55px;
+  }
+
+  &:first-child {
+    margin-top: 46px;
+  }
+}
+
+.cell-by-day {
+  width: 100%;
+  margin-right: 20px;
+}
+.line-hour{
+  display: flex;
+
+  &:first-child{
+    border-top: 1px solid #ccc;
+  }
+}
+
+.row-hour{
+  height: 55px;
+  border: 1px solid #ccc;
+  flex: 1 1 14%;
+  order: 0;
+  border-top: none;
+  border-right: none;
+
+  &:last-child{
+    border-right: 1px solid #ccc;
+  }
+}
