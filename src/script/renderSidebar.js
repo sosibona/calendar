@@ -39,3 +39,32 @@ const renderDayCell = () => {
 }
 
 renderDayCell();
+
+
+function getMonday(){  
+  const curentDate = new Date();
+  const numberDayOfWeek = curentDate.getDay();
+  const numberDayOfMonth = curentDate.getDate();
+  const startWeek = curentDate;
+
+  startWeek.setDate(numberDayOfMonth - numberDayOfWeek + 1)
+  const dateOfMonday = startWeek.getDate();
+  
+  const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
+
+  for (let i = 0; i < dateOfMondayElem.length; i++) {
+    dateOfMondayElem[i].innerHTML = dateOfMonday + i;
+  }
+}
+
+getMonday();
+
+function getCurentDay(){
+  const curentDate = new Date();
+  const curentDayOfWeek = curentDate.getDay();
+  const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
+  const daysOfWeek = document.querySelectorAll('.navigation__days');
+  dateOfMondayElem[curentDayOfWeek - 1].classList.add('date-today');
+  daysOfWeek[curentDayOfWeek - 1].classList.add('day-today');
+}
+getCurentDay()
