@@ -125,6 +125,8 @@ const daysInWeek = 7;
 
   function toNextWeek(){
     const nextWeekMonday = getMonday(new Date(dayToday.setDate(dayToday.getDate() + daysInWeek)));
+    console.log('today - ' + dayToday);
+    
 
     renderDateForWeek(nextWeekMonday);
     renderDayCell(nextWeekMonday);
@@ -135,6 +137,7 @@ const daysInWeek = 7;
 
   function toPreviosWeek(){
     const PreviosWeekMonday = getMonday(new Date(dayToday.setDate(dayToday.getDate() - daysInWeek)));
+    console.log('today - ' + dayToday);
 
     renderDateForWeek(PreviosWeekMonday);
     renderDayCell(PreviosWeekMonday);
@@ -156,3 +159,18 @@ function checkCurentWeek(week){
     removeClassCurentDate();
   }
 }
+
+const btnCurrentWeek = document.querySelector('.header__today');
+
+function showCurrentWeek(){
+  renderDayCell(new Date());
+  renderDateForWeek(new Date());
+  const currentYear = new Date().getFullYear();
+  const currentMonth = new Date().getMonth();
+  const currentDate = new Date().getDate();
+
+  dayToday.setFullYear(currentYear, currentMonth, currentDate);
+  console.log('today - ' + dayToday);
+}
+
+btnCurrentWeek.addEventListener('click', showCurrentWeek);
