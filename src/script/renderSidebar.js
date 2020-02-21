@@ -53,12 +53,11 @@ const renderDayCell = (date) => {
   const CellHourForDay = getCellHoursForDay();
   const dayOfWeek = generateNumber(0, 6)
       .map(day => 
-        `<div class="day-by-hours" data-date-of-day="${new Date(currentWeek[day])}">
+        `<div class="day-by-hours" data-date-of-day="${currentWeek[day]}">
         ${CellHourForDay}
         </div>`).join('');
 
   currentWeekElem.innerHTML = dayOfWeek;  
-  // return currentWeek;
 }
 
 renderDayCell(new Date());
@@ -69,24 +68,19 @@ function getMonday(date){
   const getDay = date.getDay();
 
   const getMonday = date.setDate(getDate - getDay + 1);
-  return new Date(getMonday);//Mo 12
+  return new Date(getMonday);
 }
 
 function getWeek(date){
   const newDate = getMonday(date);
-  // console.log(new Date(newDate));
   const week = [];
+  const oneDay = 86400000;
 
   for (let i = 0; i <= 6; i++) {
-    week.push(newDate.getTime() + 86400000 * i);
+    week.push(newDate.getTime() + oneDay * i);
   }
 
-  for (let i = 0; i <= 6; i++) {
-    console.log(new Date(week[i]));
-  }
-
-  return week;
-  
+  return week; 
 }
 
 function renderDateForWeek (date){
@@ -94,15 +88,9 @@ function renderDateForWeek (date){
 
   const startWeek = getMonday(date);
 
-  
-  // const startWeek = new Date(2020, 2, 30);
   startWeek.setDate(new Date(startWeek).getDate() - 1);
   
   dateOfMondayElem.forEach(elem => elem.innerHTML = startWeek.getDate(startWeek.setDate(startWeek.getDate() + 1)));
-
-
-  const week = getWeek(date);
-  // console.log('aaaa = ' + week);
   
 }
 
@@ -116,91 +104,55 @@ function addClassCurentDate(){
 
   dateOfMondayElem[curentDayOfWeek - 1].classList.add('date-today');
   daysOfWeek[curentDayOfWeek - 1].classList.add('day-today');
-  
 }
-
 addClassCurentDate();
 
+function removeClassCurentDate(){
+  const curentDayOfWeek = new Date().getDay();
+
+  dateOfMondayElem[curentDayOfWeek - 1].classList.remove('date-today');
+  daysOfWeek[curentDayOfWeek - 1].classList.remove('day-today');
+}
+
+const switchRigth = document.querySelector('.angle-rigth');
+const switchRigthSpan = switchRigth.parentNode;
+
+const switchLeft = document.querySelector('.angle-left');
+const switchLeftSpan = switchLeft.parentNode;
+
+const dayToday = new Date();
+const daysInWeek = 7;
+
+  function toNextWeek(){
+    const nextWeekMonday = getMonday(new Date(dayToday.setDate(dayToday.getDate() + daysInWeek)));
+
+    renderDateForWeek(nextWeekMonday);
+    renderDayCell(nextWeekMonday);
+
+    const week = getWeek(nextWeekMonday);
+    checkCurentWeek(week);
+  }
+
+  function toPreviosWeek(){
+    const PreviosWeekMonday = getMonday(new Date(dayToday.setDate(dayToday.getDate() - daysInWeek)));
+
+    renderDateForWeek(PreviosWeekMonday);
+    renderDayCell(PreviosWeekMonday);
+
+    const week = getWeek(PreviosWeekMonday);
+    checkCurentWeek(week);
+  }
+
+  switchRigthSpan.addEventListener('click', toNextWeek);
+  switchLeftSpan.addEventListener('click', toPreviosWeek);
 
 
-// function getWeek(curentDate){  
-//   const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
-  
+function checkCurentWeek(week){
+  const curentDate = new Date();
 
-//   const curentDayOfWeek = [];
-
-//   const dateOfMonday = getMonday(curentDate, 0);
-
-//   const startWeekDate = new Date(dateOfMonday).getDate();
-//   const startWeek = new Date(dateOfMonday);
-//   startWeek.getDate();
-
-//   for (let i = 0; i < dateOfMondayElem.length; i++) {
-//     curentDayOfWeek.push(startWeek.setDate(startWeekDate + i));
-//     dateOfMondayElem[i].innerHTML = startWeek.getDate(startWeek.setDate(startWeekDate + i));
-//   }
-
-//   return curentDayOfWeek;
-// }
-
-// //get curentDay
-
-// const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
-// const daysOfWeek = document.querySelectorAll('.navigation__days');
-
-// function addClassCurentDate(){
-//   const curentDayOfWeek = new Date().getDay();
-
-//   dateOfMondayElem[curentDayOfWeek - 1].classList.add('date-today');
-//   daysOfWeek[curentDayOfWeek - 1].classList.add('day-today');
-  
-// }
-
-// addClassCurentDate();
-
-// function checkCurentWeek(week){
-//   const curentDate = new Date();
-//   console.log('our week' + week);
-  
-//   console.log(`${week[0]} < ${curentDate.getTime()} && ${week[week.length - 1]} > ${curentDate.getTime()}`)
-//   console.log(`${Boolean(week[0] < curentDate.getTime())} && ${Boolean(week[week.length - 1] > curentDate.getTime())}`);
-//   if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
-//     addClassCurentDate();
-//   } else {
-//     removeClassCurentDate();
-//   }
-// }
-
-// function removeClassCurentDate(){
-//   const curentDayOfWeek = new Date().getDay();
-
-//   dateOfMondayElem[curentDayOfWeek - 1].classList.remove('date-today');
-//   daysOfWeek[curentDayOfWeek - 1].classList.remove('day-today');
-// }
-
-
-// //switch week
-
-// const switchRigth = document.querySelector('.angle-rigth');
-// const switchRigthSpan = switchRigth.parentNode;
-
-// const switchLeft = document.querySelector('.angle-left');
-// const switchLeftSpan = switchLeft.parentNode;
-
-// const dayToday = new Date();
-// const daysInWeek = 7;
-
-//   function toNextWeek(){
-//     const nextWeek = getMonday(dayToday, 7);
-//     const week = renderDayCell(new Date(nextWeek));
-//     checkCurentWeek(week);
-//   }
-
-//   function toPreviosWeek(){
-//     const previosWeek = getMonday(dayToday, -7);
-//     const week = renderDayCell(new Date(previosWeek));
-//     checkCurentWeek(week);
-//   }
-
-//   switchRigthSpan.addEventListener('click', toNextWeek);
-//   switchLeftSpan.addEventListener('click', toPreviosWeek);
+  if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
+    addClassCurentDate();
+  } else {
+    removeClassCurentDate();
+  }
+}

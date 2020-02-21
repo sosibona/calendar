@@ -1,7 +1,7 @@
 .days {
   display: flex;
   margin-left: 20px;
-  margin-top: 148px;
+  margin-top: 149px;
 }
 
 .time {
@@ -52,6 +52,10 @@
 
   &:first-child{
     border-top: 1px solid #ccc;
+  }
+
+  &:hover {
+    box-shadow: 1px 0px 2px 2px rgba(12, 124, 122, 0.5);
   }
 }
 

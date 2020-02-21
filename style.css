@@ -120,7 +120,7 @@
   cursor: pointer;
 }
 .header__angle:hover {
-  color: #000;
+  color: #0c7c7a80;
 }
 .header__month {
   font-size: 20px;
@@ -221,7 +221,7 @@
 .days {
   display: flex;
   margin-left: 20px;
-  margin-top: 148px;
+  margin-top: 149px;
 }
 
 .time {
@@ -269,6 +269,9 @@
 }
 .row-hour:first-child {
   border-top: 1px solid #ccc;
+}
+.row-hour:hover {
+  box-shadow: 1px 0px 2px 2px rgba(12, 124, 122, 0.5);
 }
 
 .day-by-hours {
