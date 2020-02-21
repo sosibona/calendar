@@ -240,7 +240,7 @@
   width: 20px;
   height: 1px;
   background-color: #ccc;
-  top: 9px;
+  top: 8px;
   left: 55px;
 }
 .time-in-day:first-child {
@@ -248,6 +248,7 @@
 }
 
 .current-week {
+  display: flex;
   width: 100%;
   margin-right: 20px;
 }
@@ -255,20 +256,25 @@
 .line-hour {
   display: flex;
 }
-.line-hour:first-child {
-  border-top: 1px solid #ccc;
+.line-hour:last-child {
+  border-right: 1px solid #ccc;
 }
 
 .row-hour {
   height: 55px;
   border: 1px solid #ccc;
-  flex: 1 1 14%;
   order: 0;
   border-top: none;
   border-right: none;
 }
-.row-hour:last-child {
-  border-right: 1px solid #ccc;
+.row-hour:first-child {
+  border-top: 1px solid #ccc;
+}
+
+.day-by-hours {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 14%;
 }
 
 * {
