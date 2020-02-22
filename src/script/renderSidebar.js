@@ -1,3 +1,11 @@
+import { generateNumber } from './generateNumber.js';
+import { getWeek } from './getWeek.js';
+import { getMonday } from './getMonday.js';
+import { renderSidebar } from './renderSidebar2.js';
+import { renderDateOfWeek } from './renderDate.js';
+
+
+
 const month = [
   'January', 
   'February', 
@@ -12,50 +20,6 @@ const month = [
   'November', 
   'December'
 ];
-//generate Number
-export const generateNumber = (from, to) => {
-  const result = [];
-
-  for (let i = from; i <= to; i++) {
-    result.push(i);
-  }
-
-  return result;
-}
-//render date of month
-
-const dateOfMonthElem = document.querySelector('.date-of-month');
-
-const renderDateOfWeek =() => {
-  const numberOfWeek = generateNumber(1, 7)
-    .map(dayOfWeek => 
-      `<span class="curent-date-of-week"></span>`).join('');
-
-      dateOfMonthElem.innerHTML = numberOfWeek;
-}
-
-renderDateOfWeek();
-
-
-
-//render Sidebar
-
-const sidebarElem = document.querySelector('.time');
-
-const renderSidebar = () => {
-const hoursByDay = generateNumber(1,24).map(time =>
-    `<div class="time-in-day" data-time-of-day="${time}">
-    ${time.toString().length < 2 ? time.toString().padStart(2, 0) : time}:00
-    </div>`).join('');
-  
-    sidebarElem.innerHTML = hoursByDay;
-
-}
-
-renderSidebar();
-
-
-//render dayCell
 
 const getCellHoursForDay = () => generateNumber(1, 24)
   .map(hoursDay => `<div class="row-hour" data-hour="${hoursDay}"></div>`).join('');
@@ -77,25 +41,9 @@ const renderDayCell = (date) => {
 renderDayCell(new Date());
 
 
-function getMonday(date){
-  const getDate = date.getDate();
-  const getDay = date.getDay();
 
-  const getMonday = date.setDate(getDate - getDay + 1);
-  return new Date(getMonday);
-}
 
-function getWeek(date){
-  const newDate = getMonday(date);
-  const week = [];
-  const oneDay = 86400000;
 
-  for (let i = 0; i <= 6; i++) {
-    week.push(newDate.getTime() + oneDay * i);
-  }
-
-  return week; 
-}
 
 function renderDateForWeek (date){
   const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
@@ -165,16 +113,15 @@ const daysInWeek = 7;
   switchRigthSpan.addEventListener('click', toNextWeek);
   switchLeftSpan.addEventListener('click', toPreviosWeek);
 
-
-function checkCurentWeek(week){
-  const curentDate = new Date();
-
-  if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
-    addClassCurentDate();
-  } else {
-    removeClassCurentDate();
+  function checkCurentWeek(week){
+    const curentDate = new Date();
+  
+    if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
+      addClassCurentDate();
+    } else {
+      removeClassCurentDate();
+    }
   }
-}
 
 const btnCurrentWeek = document.querySelector('.header__today');
 
