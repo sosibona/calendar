@@ -9,5 +9,18 @@ export const getWeek = date => {
     week.push(newDate.getTime() + oneDay * i);
   }
 
-  return week; 
+  const weekUp = week.map(elem => {
+    const getDate = new Date(elem).getDate();
+    
+    const getMonth = new Date(elem).getMonth();
+    const getFullYear = new Date(elem).getFullYear();
+
+    const newDate = new Date(getFullYear, getMonth, getDate).getTime();
+    return newDate;
+  })
+  // console.log(' =');
+  // console.log('s = ' + weekUp);
+  
+
+  return weekUp; 
 }

@@ -21,3 +21,21 @@
   font-weight: 700;
   color: #999;
 }
+
+.test{
+  background-color: #1a73e9;
+  height: inherit;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 10%;
+  border-radius: 4px;
+  text-align: center;
+  left: 10%;
+  z-index: 5;
+
+  &:hover{
+    box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
+    z-index: 6;
+  }
+}

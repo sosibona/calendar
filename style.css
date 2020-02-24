@@ -94,7 +94,7 @@
   left: 0;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   background-color: #fff;
 }
 .header__top-info {
@@ -266,6 +266,7 @@
   order: 0;
   border-top: none;
   border-right: none;
+  position: relative;
 }
 .row-hour:first-child {
   border-top: 1px solid #ccc;
@@ -296,6 +297,23 @@
   box-shadow: 1px 1px 1px 0px rgba(12, 124, 122, 0.5);
   font-weight: 700;
   color: #999;
+}
+
+.test {
+  background-color: #1a73e9;
+  height: inherit;
+  width: 80%;
+  position: absolute;
+  top: 0;
+  right: 10%;
+  border-radius: 4px;
+  text-align: center;
+  left: 10%;
+  z-index: 5;
+}
+.test:hover {
+  box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
+  z-index: 6;
 }
 
 /*# sourceMappingURL=style.css.map */
