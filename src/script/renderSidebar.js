@@ -143,6 +143,7 @@ function showCurrentWeek(){
   const currentDate = new Date().getDate();
   getCurrentMonth();
   addClassCurentDate();
+  makeEvent(events);
 
   dayToday.setFullYear(currentYear, currentMonth, currentDate);
 }
