@@ -1,26 +1,58 @@
 export const events = [
   { 
-    nameOfEvent: 'english lesson',
-    data: new Date(2020, 1, 26),
+    nameOfEvent: 'event 1',
+    data: new Date(2020, 1, 25),
     startEvent: '12:00',
-    endEvent: '15:00'
+    endEvent: '14:00',
+    color: null,
   },
   { 
-    nameOfEvent: 'Indian lesson',
-    data: new Date(2020, 1, 19),
+    nameOfEvent: 'event 2',
+    data: new Date(2020, 1, 25),
+    startEvent: '13:00',
+    endEvent: '14:45',
+    color: null,
+  },
+  { 
+    nameOfEvent: 'event 3',
+    data: new Date(2020, 1, 18),
     startEvent: '14:00',
-    endEvent: '15:00'
+    endEvent: '15:00',
+    color: null,
   },
   { 
-    nameOfEvent: 'Fance lesson',
-    data: new Date(2020, 1, 26),
-    startEvent: '14:00',
-    endEvent: '15:00'
+    nameOfEvent: 'event 4',
+    data: new Date(2020, 1, 22),
+    startEvent: '15:30',
+    endEvent: '16:00',
+    color: null,
   },
   { 
-    nameOfEvent: 'take taxi',
+    nameOfEvent: 'event 5',
     data: new Date(2020, 1, 26),
-    startEvent: '18:00',
-    endEvent: '18:30'
+    startEvent: '20:45',
+    endEvent: '21:15',
+    color: null,
+  },
+  { 
+    nameOfEvent: 'event 6',
+    data: new Date(2020, 1, 26),
+    startEvent: '22:45',
+    endEvent: '23:00',
+    color: null,
+  },
+  { 
+    nameOfEvent: 'event fake',
+    data: new Date(2020, 1, 26),
+    startEvent: '10:45',
+    endEvent: '10:00',
+    color: null,
+  },
+  { 
+    nameOfEvent: 'event fake2',
+    data: new Date(2020, 1, 26),
+    startEvent: '19:15',
+    endEvent: '18:00',
+    color: null,
   },
 ];

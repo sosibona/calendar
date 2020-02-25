@@ -11,7 +11,7 @@
 }
 
 .time-in-day {
-  height: 55px;
+  height: 60px;
   position: relative;
 
   &::after {
@@ -25,7 +25,7 @@
   }
 
   &:first-child {
-    margin-top: 46px;
+    margin-top: 51px;
   }
 }
 
@@ -43,7 +43,7 @@
 }
 
 .row-hour{
-  height: 55px;
+  height: 60px;
   border: 1px solid #ccc;
   // flex: 1 1 14%;
   order: 0;
