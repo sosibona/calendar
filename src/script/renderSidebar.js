@@ -208,7 +208,7 @@ function makeEvent(listOfEvent){
   if (getStartHour === getEndHour && getStartMinutes > getEndMinutes) continue;
 
   thisHoursInThisDay[getStartHour].innerHTML += 
-    `<div class='test' style="${styleForEvent()}; background-color: ${testClickRandomColor()}">
+    `<div class='test' style="${styleForEvent()}; background-color: #47d6dc">
       <span>${event.startEvent} - ${event.endEvent}</span>
       <span>${event.nameOfEvent}</span>
     </div>`;
