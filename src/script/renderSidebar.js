@@ -216,7 +216,7 @@ function makeEvent(listOfEvent){
 
   function styleForEvent(){    
     if (getEndHour - getStartHour === 0) {  
-     return `
+      return `
         height: ${getEndMinutes - getStartMinutes}px; 
         top: ${getStartMinutes}px`;
     } else if (getEndHour - getStartHour === 1 && getStartMinutes > getEndMinutes) {
@@ -226,7 +226,7 @@ function makeEvent(listOfEvent){
           top: ${getStartMinutes}px`
     } else {
       return `
-          height: ${60 * (getEndHour - getStartHour)}px; 
+          height: ${60 * (getEndHour - getStartHour) + (getEndMinutes - getStartMinutes)}px; 
           top: ${getStartMinutes}px`
 
     }
