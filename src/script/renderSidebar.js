@@ -2,7 +2,8 @@ import { generateNumber } from './generateNumber.js';
 import { renderSidebar } from './renderSidebar2.js';
 import { getWeek } from './getWeek.js';
 import { getMonday } from './getMonday.js';
-import { events } from './storage.js'
+import { events } from './storage.js';
+import { addEvent } from './popUp.js';
 
 const month = [
   'January', 
@@ -236,4 +237,5 @@ function makeEvent(listOfEvent){
 
 
 makeEvent(events);
+
 

@@ -6,12 +6,12 @@
   align-items: center;
   background-color: #fff;
   position: fixed;
-  z-index: 2;
+  z-index: 10;
   top: calc(50% - 200px);
   left: calc(50% - 200px);
   border-radius: 8px;
   box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
-  display: none;
+  display: flex;
 }
 .modal-form__icon-close {
   color: #999;
@@ -22,69 +22,65 @@
   margin-top: 10px;
   cursor: pointer;
 }
-.modal-form__input {
+
+.create-event {
+  display: flex;
+  padding: 0 10px;
+  flex-direction: column;
+}
+.create-event input {
   border: none;
-  border-bottom: 2px solid #1a73e9;
+}
+.create-event__name {
+  border-bottom: 2px solid #1a73e9 !important;
   margin: 50px auto;
   display: block;
   outline: none;
-  width: 300px;
+  width: 320px;
 }
-.modal-form__input:focus::placeholder {
+.create-event__name:focus::placeholder {
   color: transparent;
 }
-.modal-form__clock {
+.create-event__time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.create-event__icon-clock {
   font-size: 24px;
   color: #999;
 }
-.modal-form__additional-info {
+.create-event__additional-info {
   display: flex;
   margin-top: 60px;
 }
-.modal-form__additional-info-icon {
+.create-event__additional-info-icon {
   color: #999;
   margin-right: 5px;
 }
-.modal-form__additional-info-text {
+.create-event__additional-info-text {
   border: none;
   resize: none;
   padding: 0 10px;
 }
-.modal-form__additional-info-text:focus {
+.create-event__additional-info-text:focus {
   outline: 2px solid #1a73e9aa;
 }
-.modal-form__additional-info-text:focus::placeholder {
+.create-event__additional-info-text:focus::placeholder {
   color: transparent;
 }
-.modal-form__button {
+.create-event__button {
   width: 120px;
   height: 40px;
   background-color: #1a73e9;
   border: none;
   margin-top: 10px;
   margin-left: auto;
-  margin-right: 20px;
   text-transform: uppercase;
   color: #fff;
   border-radius: 6px;
   cursor: pointer;
-}
-
-.event__time {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding-left: 50px;
-  padding-right: 100px;
-}
-
-.form-create-event {
-  display: flex;
-  padding: 0 10px;
-}
-.form-create-event input {
-  border: none;
 }
 
 .header {

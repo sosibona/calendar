@@ -11,24 +11,25 @@
 <body>
   <div class="calendar">
     <div class="modal-form">
-      <i class="modal-form__icon-close far fa-times-circle"></i>
-      <input type="text" id="nameOfEvent" id="name" class="modal-form__input" placeholder="Event">
-      <div class="event__time">
-        <i class="modal-form__clock far fa-clock"></i>
-        <form class="form-create-event">
+      <span class="modal-form__icon-close"><i class="far fa-times-circle"></i></span>
+      <form class="create-event">
+        <input type="text" id="nameOfEvent" id="name" class="create-event__name" placeholder="Event" required>
+        <div class="create-event__time">
+            <i class="create-event__icon-clock far fa-clock"></i>
             <input type="date" id="date" name="calendar"
-            value="2020-02-20" min="2020-02-20" max="2040-12-31">
+            value="2020-02-20" min="2020-02-20" max="2040-12-31" required>
             <input type="time" id="startTime" name="start"
             min="00:00" max="24:00" step="900" required>
             <input type="time" id="endTime" name="end"
             min="00:00" max="24:00" step="900" required>
-        </form>
-      </div>
-      <div class="modal-form__additional-info">
-        <i class="modal-form__additional-info-icon fas fa-stream"></i>
-        <textarea class="modal-form__additional-info-text" name="additional-info" id="info" cols="30" rows="5" placeholder="Additional informations"></textarea>
-      </div>
-      <button class="modal-form__button">Save</button>
+        </div>
+        <div class="create-event__additional-info">
+          <i class="create-event__additional-info-icon fas fa-stream"></i>
+          <textarea class="create-event__additional-info-text" name="additional-info" id="info" cols="30" rows="5" placeholder="Additional informations"></textarea>
+        </div>
+      <button class="create-event__button">Save</button>
+    </form>
+    <!-- </div> -->
     </div>
     <header class="header">
       <div class="header__top-info">

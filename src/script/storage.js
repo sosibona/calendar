@@ -34,7 +34,7 @@ export const events = [
   { 
     nameOfEvent: 'skype with mentor',
     data: new Date(2020, 1, 26),
-    startEvent: '20:45',
+    startEvent: '18:45',
     endEvent: '21:15',
     color: null,
     id: null,
