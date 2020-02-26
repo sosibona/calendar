@@ -48,37 +48,53 @@ function isCorrect(){
   const fullDate = new Date(year, month, date).getTime();
 
   if (nameEvent.value === "") {
-    error.innerHTML += 'You need give a name of your event';
-    nameEvent.style.outline = '1px solid blue';
+    error.innerHTML += '*You need give a name of your event';
+    nameEvent.style.outline = '2px solid red';
     console.log('wrong name');
     return false;
   }
+  nameEvent.style.outline = 'none';
 
   if (new Date(calendarEvent.value.replace(/-/g, ",")).getTime() < fullDate) {
-    error.innerHTML += 'The date you selected has already expired';
+    calendarEvent.style.outline = '2px solid red';
+    error.innerHTML += '*The date you selected has already expired';
     return false;
   }
+  calendarEvent.style.outline = 'none';
 
   if (startTimeEvent.value === "" || endTimeEvent.value === "") {
-    error.innerHTML += 'You need to enter the time';
+    startTimeEvent.style.outline = '2px solid red';
+    endTimeEvent.style.outline = '2px solid red';
+    error.innerHTML += '*You need to enter correct the time';
     console.log('wrong oclock');
     return false;
   }
+
+  startTimeEvent.style.outline = 'none';
+  endTimeEvent.style.outline = 'none';
 
   const [StartHour, StartMinutes] = startTimeEvent.value.split(':').map(elem => +elem);
   const [EndHour, EndMinutes] = endTimeEvent.value.split(':').map(elem => +elem);
 
   if (StartHour > EndHour) {
-    error.innerHTML += 'You enter wrong hour';
+    startTimeEvent.style.outline = '2px solid red';
+    endTimeEvent.style.outline = '2px solid red';
+    error.innerHTML += '*You enter wrong hour';
     console.log('wrong oclock');
     return false;
   }
+  startTimeEvent.style.outline = 'none';
+  endTimeEvent.style.outline = 'none';
 
   if (StartHour === EndHour && StartMinutes > EndMinutes) {
-    error.innerHTML += 'You enter wrong minutes';
+    startTimeEvent.style.outline = '2px solid red';
+    endTimeEvent.style.outline = '2px solid red';
+    error.innerHTML += '*You enter wrong minutes';
     console.log('wrong oclock');
     return false;
   }
+  startTimeEvent.style.outline = 'none';
+  endTimeEvent.style.outline = 'none';
 
   return true;
 }
