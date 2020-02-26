@@ -79,7 +79,7 @@ function isCorrect(){
   if (StartHour > EndHour) {
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
-    error.innerHTML += '*You enter wrong hour';
+    error.innerHTML += '*You entered wrong hour';
     console.log('wrong oclock');
     return false;
   }
@@ -89,12 +89,20 @@ function isCorrect(){
   if (StartHour === EndHour && StartMinutes > EndMinutes) {
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
-    error.innerHTML += '*You enter wrong minutes';
+    error.innerHTML += '*You entered wrong minutes';
     console.log('wrong oclock');
     return false;
   }
   startTimeEvent.style.outline = 'none';
   endTimeEvent.style.outline = 'none';
+
+  if (StartMinutes % 15 !== 0 || EndMinutes % 15 !== 0) {
+    startTimeEvent.style.outline = '2px solid red';
+    endTimeEvent.style.outline = '2px solid red';
+    error.innerHTML += '*Step must be 15 minutes';
+    console.log('wrong oclock');
+    return false;
+  }
 
   return true;
 }
