@@ -185,7 +185,7 @@ const testClickRandomColor = () => {
   return `#${color}`;
 }
 
-function makeEvent(listOfEvent){
+export function makeEvent(listOfEvent){
   
   const days = [...document.querySelectorAll('.day-by-hours')];
   

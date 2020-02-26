@@ -22,6 +22,12 @@
   margin-top: 10px;
   cursor: pointer;
 }
+.modal-form__error {
+  width: 320px;
+  height: 40px;
+  border: 1px solid;
+  margin-bottom: 10px;
+}
 
 .create-event {
   display: flex;
@@ -34,6 +40,7 @@
 .create-event__name {
   border-bottom: 2px solid #1a73e9 !important;
   margin: 50px auto;
+  margin-top: 0px;
   display: block;
   outline: none;
   width: 320px;
