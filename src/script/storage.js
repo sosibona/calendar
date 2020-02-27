@@ -1,9 +1,9 @@
 export const events = [
   { 
     nameOfEvent: 'Meet with friends',
-    data: new Date(2020, 1, 25),
-    startEvent: '12:00',
-    endEvent: '14:00',
+    data: new Date(2020, 1, 27),
+    startEvent: '01:00',
+    endEvent: '02:00',
     description: "Call to Mike before meet",
     id: Math.random().toString(16).substring(9),
   },

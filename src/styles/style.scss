@@ -58,8 +58,19 @@
 .line-now {
   position: absolute;
   width: 100px;
-  height: 1px;
+  height: 2px;
   background-color: red;
-  top: 48px;
+  top: -20px;
   left: 0;  
+  z-index: 6;
+
+  &__time {
+    position: absolute;
+    width: 45px;
+    height: 16px;
+    bottom: -8px;
+    left: -45px;
+    background-color: red;
+    color: #fff;
+  }
 }

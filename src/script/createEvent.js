@@ -13,7 +13,6 @@ export function createEvent(listOfEvent){
 
   if (!thisDays) {continue;} // якщо її тут немає, то переходжу до наступної
   const thisDay = thisDays.children; //   стоврюю колекцію з годин в цьому дні
-  console.log(thisDay);
   
 
   const thisHoursInThisDay = [...thisDay];

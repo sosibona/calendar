@@ -5,6 +5,7 @@ import { getWeek } from './getWeek.js'
 import { getCurrentMonth} from './getCurrentMonth.js'
 import {createEvent} from './createEvent.js'
 import { events } from './storage.js'
+import { start, stopLine } from './countLineTime.js';
 
 
 
@@ -17,16 +18,8 @@ export function addClassCurentDate(){
 
   curentDayOfWeek = isSunday(curentDayOfWeek);
 
-  console.log(curentDayOfWeek);
-  console.log(dateOfMondayElem);
-  
-  
-
   dateOfMondayElem[curentDayOfWeek - 1].classList.add('date-today');
   daysOfWeek[curentDayOfWeek - 1].classList.add('day-today');
-  let redLine = document.createElement('span')
-  redLine.classList.add('line-now')
-  dateOfMondayElem[curentDayOfWeek - 1].append(redLine);  
 }
 
 function removeClassCurentDate(){
@@ -67,9 +60,9 @@ function toPreviosWeek(){
   renderDayCell(PreviosWeekMonday);
 
   const week = getWeek(PreviosWeekMonday);
-  checkCurentWeek(week);
   getCurrentMonth();
   createEvent(events);
+  checkCurentWeek(week);
 }
 
 switchRigthSpan.addEventListener('click', toNextWeek);
@@ -81,8 +74,13 @@ function checkCurentWeek(week){
 
   if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
     addClassCurentDate();
+    console.log('before start');
+    
+    start();
   } else {
     removeClassCurentDate();
+    console.log('before stop');
+    stopLine();
   }
 }
 
