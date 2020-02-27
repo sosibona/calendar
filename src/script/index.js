@@ -5,7 +5,9 @@ import { getWeek } from './getWeek.js';
 import { getMonday } from './getMonday.js';
 import { events } from './storage.js';
 import { addEvent } from './popUp.js';
-import { renderDateForWeek } from './renderDate.js'
+import { renderDateForWeek } from './renderDate.js';
+import { renderDayCell } from './renderDayCell.js'
+import { onEvent } from './deleteEvent.js';
 
 const month = [
   'January', 
@@ -21,38 +23,6 @@ const month = [
   'November', 
   'December'
 ];
-
-
-// const dateOfMonthElem = document.querySelector('.date-of-month');
-
-// const renderDateOfWeek =() => {
-//   const numberOfWeek = generateNumber(1, 7)
-//     .map(dayOfWeek => 
-//       `<span class="curent-date-of-week"></span>`).join('');
-
-//       dateOfMonthElem.innerHTML = numberOfWeek;
-// }
-
-// renderDateOfWeek();
-
-const getCellHoursForDay = () => generateNumber(1, 24)
-  .map(hoursDay => `<div class="row-hour" data-hour="${hoursDay}"></div>`).join('');
-
-const renderDayCell = (date) => {
-  const currentWeekElem = document.querySelector('.current-week');
-  const currentWeek = getWeek(date);
-  const CellHourForDay = getCellHoursForDay();
-  const dayOfWeek = generateNumber(0, 6)
-      .map(day => 
-        `<div class="day-by-hours" data-date-of-day="${currentWeek[day]}">
-        ${CellHourForDay}
-        </div>`).join('');
-
-  currentWeekElem.innerHTML = dayOfWeek;  
-}
-
-renderDayCell(new Date());
-
 
 
 const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
@@ -226,37 +196,6 @@ export function makeEvent(listOfEvent){
 
 makeEvent(events);
 
-const eventForDelete = document.querySelector('.current-week');
 
-function onEvent(){  
-  const click = event.target;
-  let idEvent;
-  const isEvent = click.classList.contains('test');
-  const isEventClose = click.closest('.test');
-  
-
-  if (!isEvent && !isEventClose) {
-    return
-  }
-
-  if (isEventClose) {
-    idEvent = click.parentNode.dataset.id;
-  } else {
-    idEvent = event.target.dataset.id;
-  }
-  
-  const week = event.target.closest('.day-by-hours').dataset.dateOfDay;
-  
-  for (let i = 0; i < events.length; i++) {
-    if (events[i].id === idEvent) {
-      events.splice(i, 1);
-    }
-  }  
-  renderDayCell(new Date(+week));
-  makeEvent(events);
-  
-}
-
-eventForDelete.addEventListener('click', onEvent);
 
 
