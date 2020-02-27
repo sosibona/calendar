@@ -4,7 +4,7 @@ import { renderDateForWeek } from './renderDate.js';
 import { getCurrentMonth } from './getCurrentMonth.js';
 import { createEvent} from './createEvent.js';
 import { events } from './storage.js';
-import { start } from './countLineTime.js';
+import { startLine } from './countLineTime.js';
 
 const btnCurrentWeek = document.querySelector('.header__today');
 
@@ -19,13 +19,13 @@ export function showCurrentWeek(){
   const currentDate = new Date().getDate();
 
   if (new Date(todayYear, todayMonth, todayDate) === new Date(currentYear, currentMonth, currentDate)) return;
-  
+
   renderDayCell(new Date());
   renderDateForWeek(new Date());
   getCurrentMonth();
   addClassCurentDate();
   createEvent(events);
-  start();
+  startLine();
 
 
   dayToday.setFullYear(currentYear, currentMonth, currentDate);

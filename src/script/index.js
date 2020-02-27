@@ -12,7 +12,7 @@ import { renderDayCell } from './renderDayCell.js'
 import { getCurrentMonth } from './getCurrentMonth.js';
 import { createEvent } from './createEvent.js';
 import { addClassCurentDate } from './navigationButton.js';
-import { start } from './countLineTime.js';
+import { startLine } from './countLineTime.js';
 
 renderWeek();
 renderSidebar();
@@ -21,7 +21,7 @@ renderDayCell(new Date());
 getCurrentMonth();
 createEvent(events);
 addClassCurentDate();
-start()
+startLine()
 // countLineTime()
 
 

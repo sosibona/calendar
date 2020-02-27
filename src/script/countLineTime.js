@@ -1,20 +1,17 @@
-let timerId;
-let i = 0;
+export let timerId;
 
-function go(){
+export function startLine(){
   countLineTime();
   timerId = setInterval(countLineTime, 60000);
 }
 
-export function stopLine(){
-  console.log('stop');
-  
+// export function stopLine(){
   clearInterval(timerId)
-}
+// }
 
-export function start(){
-  go();
-}
+// export function start(){
+//   go();
+// }
 
 function countLineTime(){
   let nowTimeHour = new Date().getHours();

@@ -1,6 +1,5 @@
 import { getWeek } from './getWeek.js';
 import { generateNumber } from './generateNumber.js';
-// import { countLineTime } from './countLineTime.js';
 
 const getCellHoursForDay = () => generateNumber(1, 24)
   .map(hoursDay => `<div class="row-hour" data-hour="${hoursDay}"></div>`).join('');

@@ -1,6 +1,7 @@
 import { events } from './storage.js';
 import { renderDayCell } from './renderDayCell.js'
 import { createEvent } from './createEvent.js'
+import { startLine } from './countLineTime.js';
 
 const eventForDelete = document.querySelector('.current-week');
 
@@ -24,6 +25,7 @@ export function onEvent(){
   }  
   renderDayCell(new Date(+week));
   createEvent(events);
+  startLine()
   
 }
 

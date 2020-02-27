@@ -5,7 +5,7 @@ import { getWeek } from './getWeek.js'
 import { getCurrentMonth} from './getCurrentMonth.js'
 import {createEvent} from './createEvent.js'
 import { events } from './storage.js'
-import { start, stopLine } from './countLineTime.js';
+import { startLine, timerId } from './countLineTime.js';
 
 
 
@@ -74,13 +74,10 @@ function checkCurentWeek(week){
 
   if (week[0] < curentDate.getTime() && week[week.length - 1] > curentDate.getTime()) {
     addClassCurentDate();
-    console.log('before start');
-    
-    start();
+    startLine();
   } else {
     removeClassCurentDate();
-    console.log('before stop');
-    stopLine();
+    clearInterval(timerId)
   }
 }
 
