@@ -1,13 +1,14 @@
-import { generateNumber } from './generateNumber.js';
+import { getMonday } from './getMonday.js';
 
-export const dateOfMonthElem = document.querySelector('.date-of-month');
- 
-export const renderDateOfWeek =() => {
-  const numberOfWeek = generateNumber(1, 7)
-    .map(dayOfWeek => 
-      `<span class="curent-date-of-week"></span>`).join('');
+export function renderDateForWeek (date){
+  const dateOfMondayElem = document.querySelectorAll('.curent-date-of-week');
 
-      dateOfMonthElem.innerHTML = numberOfWeek;
+  const startWeek = getMonday(date);
+
+  startWeek.setDate(new Date(startWeek).getDate() - 1);
+  
+  dateOfMondayElem.forEach(elem => elem.innerHTML = startWeek.getDate(startWeek.setDate(startWeek.getDate() + 1)));
+  
 }
 
-renderDateOfWeek();
+renderDateForWeek(new Date());

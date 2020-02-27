@@ -255,6 +255,7 @@
   display: flex;
   width: 100%;
   margin-right: 20px;
+  position: relative;
 }
 
 .line-hour {
@@ -331,6 +332,15 @@
 .event__description {
   margin-top: 10px !important;
   color: #999;
+}
+
+.line-now {
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background-color: red;
+  top: 48px;
+  left: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

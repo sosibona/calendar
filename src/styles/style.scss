@@ -54,3 +54,12 @@
   margin-top: 10px !important;
   color: #999;
 }
+
+.line-now {
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background-color: red;
+  top: 48px;
+  left: 0;  
+}

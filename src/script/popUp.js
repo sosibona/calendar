@@ -1,5 +1,5 @@
 import { events } from './storage.js';
-import { makeEvent } from './renderSidebar.js';
+import { makeEvent } from './index.js';
 
 const btnAddEvent = document.querySelector('.header__create');
 const btnClosePopUp = document.querySelector('.modal-form__icon-close');

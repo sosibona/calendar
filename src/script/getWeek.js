@@ -18,9 +18,6 @@ export const getWeek = date => {
     const newDate = new Date(getFullYear, getMonth, getDate).getTime();
     return newDate;
   })
-  // console.log(' =');
-  // console.log('s = ' + weekUp);
-  
 
   return weekUp; 
 }
