@@ -13,14 +13,15 @@ export function showCurrentWeek(){
   const todayYear = dayToday.getFullYear();
   const todayMonth = dayToday.getMonth();
   const todayDate = dayToday.getDate();
-
-  console.log(dayToday);
   
-  renderDayCell(new Date());
-  renderDateForWeek(new Date());
   const currentYear = new Date().getFullYear();
   const currentMonth = new Date().getMonth();
   const currentDate = new Date().getDate();
+
+  if (new Date(todayYear, todayMonth, todayDate) === new Date(currentYear, currentMonth, currentDate)) return;
+  
+  renderDayCell(new Date());
+  renderDateForWeek(new Date());
   getCurrentMonth();
   addClassCurentDate();
   createEvent(events);
