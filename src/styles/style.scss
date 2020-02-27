@@ -34,6 +34,7 @@
     flex-direction: column;
     overflow: hidden;
     border: 1px solid blue;
+    cursor: pointer;
 
   &:hover{
     // box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
@@ -47,4 +48,9 @@
     font-size: 12px;
     font-weight: 700;
   }
+}
+
+.event__description {
+  margin-top: 10px !important;
+  color: #999;
 }

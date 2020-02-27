@@ -315,6 +315,7 @@
   flex-direction: column;
   overflow: hidden;
   border: 1px solid blue;
+  cursor: pointer;
 }
 .test:hover {
   z-index: 6;
@@ -325,6 +326,11 @@
   margin-top: 1px;
   font-size: 12px;
   font-weight: 700;
+}
+
+.event__description {
+  margin-top: 10px !important;
+  color: #999;
 }
 
 /*# sourceMappingURL=style.css.map */

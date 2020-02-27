@@ -177,14 +177,6 @@ export function isSunday(numberOfWeek){
   return numberOfWeek;
 }
 
-
-const testClickRandomColor = () => {
-  const color = Math.random().toString(16).substring(9);
-  // console.log(color);
-  
-  return `#${color}`;
-}
-
 export function makeEvent(listOfEvent){
   
   const days = [...document.querySelectorAll('.day-by-hours')];
@@ -201,18 +193,16 @@ export function makeEvent(listOfEvent){
 
   const thisHoursInThisDay = [...thisDay];
   [getStartHour, getStartMinutes] = event.startEvent.split(':').map(elem => +elem);
-  [getEndHour, getEndMinutes] = event.endEvent.split(':').map(elem => +elem);
-
-  console.log(getStartHour, getEndHour);
-  
+  [getEndHour, getEndMinutes] = event.endEvent.split(':').map(elem => +elem);  
 
   if (getStartHour > getEndHour) continue;
   if (getStartHour === getEndHour && getStartMinutes > getEndMinutes) continue;
 
   thisHoursInThisDay[getStartHour].innerHTML += 
-    `<div class='test' style="${styleForEvent()}; background-color: #47d6dc">
+    `<div data-id="${event.id}" class='test' style="${styleForEvent()}; background-color: #47d6dc">
       <span>${event.startEvent} - ${event.endEvent}</span>
       <span>${event.nameOfEvent}</span>
+      <span class="event__description">${event.description}</span>
     </div>`;
   }
 
@@ -237,5 +227,37 @@ export function makeEvent(listOfEvent){
 
 
 makeEvent(events);
+
+const eventForDelete = document.querySelector('.current-week');
+
+function onEvent(){  
+  const click = event.target;
+  let idEvent;
+  const isEvent = click.classList.contains('test');
+  const isEvent2 = click.parentNode.classList.contains('test');
+
+  if (!isEvent && !isEvent2) {
+    return
+  }
+
+  if (isEvent2) {
+    idEvent = click.parentNode.dataset.id;
+  } else {
+    idEvent = event.target.dataset.id;
+  }
+  
+  const week = event.target.closest('.day-by-hours').dataset.dateOfDay;
+  
+  for (let i = 0; i < events.length; i++) {
+    if (events[i].id === idEvent) {
+      events.splice(i, 1);
+    }
+  }  
+  renderDayCell(new Date(+week));
+  makeEvent(events);
+  
+}
+
+eventForDelete.addEventListener('click', onEvent);
 
 

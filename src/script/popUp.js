@@ -25,6 +25,11 @@ export function createEvent(event){
   const formatData = [...new FormData(formElem)]
       .reduce((events, [field, value]) => ({...events, [field]: value}), {});
   formatData.data = new Date(formatData.data.replace(/-/g, ","));
+  console.log('formData');
+  formatData.id = Math.random().toString(16).substring(9);
+  console.log(formatData);
+  
+  
   events.push(formatData);
   makeEvent(events)
   closePopUp();
