@@ -1,5 +1,5 @@
-import { generateNumber } from './generateNumber.js';
 import { getWeek } from './getWeek.js';
+import { generateNumber } from './generateNumber.js';
 
 const getCellHoursForDay = () => generateNumber(1, 24)
   .map(hoursDay => `<div class="row-hour" data-hour="${hoursDay}"></div>`).join('');
@@ -16,5 +16,3 @@ export const renderDayCell = (date) => {
 
   currentWeekElem.innerHTML = dayOfWeek;  
 }
-
-renderDayCell(new Date());

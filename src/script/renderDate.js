@@ -10,5 +10,3 @@ export function renderDateForWeek (date){
   dateOfMondayElem.forEach(elem => elem.innerHTML = startWeek.getDate(startWeek.setDate(startWeek.getDate() + 1)));
   
 }
-
-renderDateForWeek(new Date());

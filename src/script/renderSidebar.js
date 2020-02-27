@@ -10,5 +10,3 @@ export const renderSidebar = () => {
     
       sidebarElem.innerHTML = hoursByDay;
   }
-
-  renderSidebar();

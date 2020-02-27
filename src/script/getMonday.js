@@ -1,4 +1,4 @@
-import { isSunday } from './index.js'
+import { isSunday } from './navigationButton.js'
 
 export function getMonday(date){
   const getDate = date.getDate(); 

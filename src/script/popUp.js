@@ -1,5 +1,5 @@
 import { events } from './storage.js';
-import { makeEvent } from './index.js';
+import { createEvent } from './createEvent.js';
 
 const btnAddEvent = document.querySelector('.header__create');
 const btnClosePopUp = document.querySelector('.modal-form__icon-close');
@@ -7,7 +7,7 @@ const btnCreateEvent = document.querySelector('.create-event__button');
 
 const popUp = document.querySelector('.modal-form');
 
-export function addEvent(){
+export function openPopUp(){
   popUp.style.display = 'flex';
 }
 
@@ -17,7 +17,7 @@ export function closePopUp(){
 
 const formElem = document.querySelector('.create-event');
 
-export function createEvent(event){
+export function addEvent(event){
   event.preventDefault();
 
   if(!isCorrect()) return;
@@ -25,19 +25,17 @@ export function createEvent(event){
   const formatData = [...new FormData(formElem)]
       .reduce((events, [field, value]) => ({...events, [field]: value}), {});
   formatData.data = new Date(formatData.data.replace(/-/g, ","));
-  console.log('formData');
   formatData.id = Math.random().toString(16).substring(9);
-  console.log(formatData);
   
   
   events.push(formatData);
-  makeEvent(events)
+  createEvent(events)
   closePopUp();
 }
 
-btnAddEvent.addEventListener('click', addEvent);
+btnAddEvent.addEventListener('click', openPopUp);
 btnClosePopUp.addEventListener('click', closePopUp);
-btnCreateEvent.addEventListener('click', createEvent);
+btnCreateEvent.addEventListener('click', addEvent);
 
 function isCorrect(){
   const nameEvent = document.querySelector('.create-event__name');
@@ -55,7 +53,6 @@ function isCorrect(){
   if (nameEvent.value === "") {
     error.innerHTML += '*You need give a name of your event';
     nameEvent.style.outline = '2px solid red';
-    console.log('wrong name');
     return false;
   }
   nameEvent.style.outline = 'none';
@@ -71,7 +68,6 @@ function isCorrect(){
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
     error.innerHTML += '*You need to enter correct the time';
-    console.log('wrong oclock');
     return false;
   }
 
@@ -85,7 +81,6 @@ function isCorrect(){
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
     error.innerHTML += '*You entered wrong hour';
-    console.log('wrong oclock');
     return false;
   }
   startTimeEvent.style.outline = 'none';
@@ -95,7 +90,6 @@ function isCorrect(){
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
     error.innerHTML += '*You entered wrong minutes';
-    console.log('wrong oclock');
     return false;
   }
   startTimeEvent.style.outline = 'none';
@@ -105,7 +99,6 @@ function isCorrect(){
     startTimeEvent.style.outline = '2px solid red';
     endTimeEvent.style.outline = '2px solid red';
     error.innerHTML += '*Step must be 15 minutes';
-    console.log('wrong oclock');
     return false;
   }
 

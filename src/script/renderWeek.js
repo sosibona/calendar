@@ -9,5 +9,3 @@ export const renderWeek =() => {
 
       dateOfMonthElem.innerHTML = numberOfWeek;
 }
-
-renderWeek();
