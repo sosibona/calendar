@@ -22,7 +22,7 @@
   color: #999;
 }
 
-.test{
+.event{
   background-color: #1a73e9;
     height: inherit;
     width: 95%;
@@ -37,7 +37,6 @@
     cursor: pointer;
 
   &:hover{
-    // box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
     z-index: 6;
   }
 

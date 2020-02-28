@@ -23,7 +23,7 @@ export function createEvent(listOfEvent){
   if (getStartHour === getEndHour && getStartMinutes > getEndMinutes) continue;
 
   thisHoursInThisDay[getStartHour].innerHTML += //знаходжу клітинку в якій годині має початися івент
-    `<div data-id="${event.id}" class='test' style="${styleForEvent()}; background-color: #47d6dc">
+    `<div data-id="${event.id}" class='event' style="${styleForEvent()}; background-color: #47d6dc">
       <span>${event.startEvent} - ${event.endEvent}</span>
       <span>${event.nameOfEvent}</span>
       <span class="event__description">${event.description}</span>

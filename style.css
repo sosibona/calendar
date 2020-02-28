@@ -305,7 +305,7 @@
   color: #999;
 }
 
-.test {
+.event {
   background-color: #1a73e9;
   height: inherit;
   width: 95%;
@@ -319,10 +319,10 @@
   border: 1px solid blue;
   cursor: pointer;
 }
-.test:hover {
+.event:hover {
   z-index: 6;
 }
-.test span {
+.event span {
   text-align: left;
   margin-left: 8px;
   margin-top: 1px;
