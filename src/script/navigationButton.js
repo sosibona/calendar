@@ -7,9 +7,6 @@ import {createEvent} from './createEvent.js'
 import { events } from './storage.js'
 import { startLine, timerId } from './countLineTime.js';
 
-
-
-
 const daysOfWeek = document.querySelectorAll('.navigation__days');
 
 export function addClassCurentDate(){

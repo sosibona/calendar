@@ -13,6 +13,14 @@
   box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
   display: none;
 
+  &__error {
+    width: 320px;
+    height: 40px;
+    margin-bottom: 10px;
+    color: red;
+    padding: 5px;
+  }
+
   &__icon-close {
     color: #999;
     font-size: 24px;
@@ -21,15 +29,6 @@
     margin-right: 10px;
     margin-top: 10px;
     cursor: pointer;
-  }
-
-  &__error {
-    width: 320px;
-    height: 40px;
-    // border: 1px solid;
-    margin-bottom: 10px;
-    color: red;
-    padding: 5px;
   }
 }
 

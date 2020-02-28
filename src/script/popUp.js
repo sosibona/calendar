@@ -40,6 +40,7 @@ btnCreateEvent.addEventListener('click', addEvent);
 function isCorrect(){
   const nameEvent = document.querySelector('.create-event__name');
   const calendarEvent = document.querySelector('.calendar-data');
+  // console.log(calendarEvent.value);
   const startTimeEvent = document.querySelector('.startTime');
   const endTimeEvent = document.querySelector('.endTime');
   const error = document.querySelector('.modal-form__error');
@@ -56,10 +57,18 @@ function isCorrect(){
     return false;
   }
   nameEvent.style.outline = 'none';
+  
 
   if (new Date(calendarEvent.value.replace(/-/g, ",")).getTime() < fullDate) {
     calendarEvent.style.outline = '2px solid red';
     error.innerHTML += '*The date you selected has already expired';
+    return false;
+  }
+  calendarEvent.style.outline = 'none';
+
+  if (calendarEvent.value === "") {
+    calendarEvent.style.outline = '2px solid red';
+    error.innerHTML += '*You need select the date';
     return false;
   }
   calendarEvent.style.outline = 'none';

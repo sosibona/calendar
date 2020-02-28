@@ -65,4 +65,22 @@ export const events = [
     color: null,
     id: Math.random().toString(16).substring(9),
   },
+  { 
+    nameOfEvent: 'My Birthday',
+    data: new Date(2020, 2, 5),
+    startEvent: '10:45',
+    endEvent: '11:00',
+    description: "",
+    color: null,
+    id: Math.random().toString(16).substring(9),
+  },
+  { 
+    nameOfEvent: 'Drink beer',
+    data: new Date(2020, 2, 5),
+    startEvent: '19:15',
+    endEvent: '20:00',
+    description: "",
+    color: null,
+    id: Math.random().toString(16).substring(9),
+  },
 ];

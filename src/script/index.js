@@ -13,6 +13,7 @@ import { getCurrentMonth } from './getCurrentMonth.js';
 import { createEvent } from './createEvent.js';
 import { addClassCurentDate } from './navigationButton.js';
 import { startLine } from './countLineTime.js';
+import { greenwichTime } from './greenwichTime.js'
 
 renderWeek();
 renderSidebar();
@@ -22,7 +23,7 @@ getCurrentMonth();
 createEvent(events);
 addClassCurentDate();
 startLine()
-// countLineTime()
+greenwichTime(new Date());
 
 
 

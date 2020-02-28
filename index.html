@@ -10,6 +10,19 @@
 </head>
 <body>
   <div class="calendar">
+    <div class="modal-delete">
+      <span class="modal-delete__icon-close"><i class="far fa-times-circle"></i></span>
+      <div class="modal-delete__event">
+        <i class="modal-delete__icon-title far fa-calendar-alt"></i><h1 class="modal-delete__title">Go to footbal</h1>
+      </div>
+      <div class="modal-delete__data">
+        <i class="modal-delete__icon-data far fa-clock"></i><span class="modal-delete__time">20.12.2020</span>
+      </div>
+      <div class="modal-delete__description">
+        <i class="modal-delete__icon-description far fa-question-circle"></i><span class="modal-delete__info">dasdkasjdjkla jaksjdjasdkahs jasdjh hasjh dasdkasjdjkla jaksjdjasdkahs jasdjh hasjhdasdkasjdjkla jaksjdjasdkahs jasdjh hasjhdasdkasjdjkla jaksjdjasdkahs jasdjh hasjh</span>
+      </div>
+      <button class="modal-delete__btn-delete-event">Delete</button>
+    </div>
     <div class="modal-form">
       <span class="modal-form__icon-close"><i class="far fa-times-circle"></i></span>
       <span class="modal-form__error"></span>
@@ -18,7 +31,7 @@
         <div class="create-event__time">
             <i class="create-event__icon-clock far fa-clock"></i>
             <input class="calendar-data" type="date" id="date" name="data"
-            value="2020-02-20" min="2020-02-20" max="2040-12-31" required>
+            min="2020-02-20" max="2040-12-31" required>
             <input class="startTime" type="time" id="startTime" name="startEvent"
             min="00:00" max="24:00" step="900" required>
             <input class="endTime" type="time" id="endTime" name="endEvent"
@@ -60,7 +73,7 @@
         </div>
         <div class="date-of-month">
         </div>
-        <span class="greenvich-zone">GMT +02:00</span>
+        <span class="greenwich-zone"></span>
       </nav>
     </header>
     <main class="days">

@@ -1,1 +1,0 @@
-const redLine = document.querySelector('.current-wwek');

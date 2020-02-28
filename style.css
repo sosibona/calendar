@@ -13,6 +13,13 @@
   box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
   display: none;
 }
+.modal-form__error {
+  width: 320px;
+  height: 40px;
+  margin-bottom: 10px;
+  color: red;
+  padding: 5px;
+}
 .modal-form__icon-close {
   color: #999;
   font-size: 24px;
@@ -21,13 +28,6 @@
   margin-right: 10px;
   margin-top: 10px;
   cursor: pointer;
-}
-.modal-form__error {
-  width: 320px;
-  height: 40px;
-  margin-bottom: 10px;
-  color: red;
-  padding: 5px;
 }
 
 .create-event {
@@ -214,7 +214,7 @@
   border-right: 1px solid #ccc;
 }
 
-.greenvich-zone {
+.greenwich-zone {
   position: absolute;
   top: 75px;
   left: 10px;
@@ -287,6 +287,57 @@
   position: relative;
 }
 
+.modal-delete {
+  width: 400px;
+  background-color: white;
+  position: fixed;
+  z-index: 10;
+  top: calc(50% - 200px);
+  left: calc(50% - 200px);
+  border-radius: 8px;
+  box-shadow: 10px 10px 40px 10px rgba(12, 124, 122, 0.4);
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  color: #999;
+}
+.modal-delete__event {
+  display: flex;
+  align-items: center;
+}
+.modal-delete__data, .modal-delete__description {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+}
+.modal-delete__icon-title, .modal-delete__icon-data, .modal-delete__icon-description {
+  font-size: 24px;
+  margin-right: 10px;
+}
+.modal-delete__title {
+  font-size: 24px;
+  margin: 0;
+}
+.modal-delete__btn-delete-event {
+  margin-top: 10px;
+  width: 150px;
+  height: 50px;
+  background-color: #1a73e9;
+  color: #fff;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+}
+.modal-delete__icon-close {
+  color: #999;
+  font-size: 24px;
+  display: block;
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
 * {
   box-sizing: border-box;
   font-family: Roboto, sans-serif;
@@ -309,7 +360,7 @@
   background-color: #1a73e9;
   height: inherit;
   width: 95%;
-  position: absolute;
+  position: relative;
   top: 0;
   text-align: center;
   z-index: 5;
@@ -329,7 +380,6 @@
   font-size: 12px;
   font-weight: 700;
 }
-
 .event__description {
   margin-top: 10px !important;
   color: #999;
