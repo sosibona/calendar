@@ -1,5 +1,7 @@
-import { events } from './storage.js';
+// import { events } from './storage.js';
+import { setItem, getItem } from './storage.js';
 import { createEvent } from './createEvent.js';
+import { renderDayCell } from './renderDayCell.js';
 
 const btnAddEvent = document.querySelector('.header__create');
 const btnClosePopUp = document.querySelector('.modal-form__icon-close');
@@ -24,12 +26,25 @@ export function addEvent(event){
 
   const formatData = [...new FormData(formElem)]
       .reduce((events, [field, value]) => ({...events, [field]: value}), {});
-  formatData.data = new Date(formatData.data.replace(/-/g, ","));
+  formatData.data = formatData.data.replace(/-/g, ",");
+  // formatData.data = new Date(formatData.data.replace(/-/g, ","));
   formatData.id = Math.random().toString(16).substring(9);
+
+  console.log(formatData);
   
   
-  events.push(formatData);
-  createEvent(events)
+  const listOfEvent = getItem('events') || [];
+
+  listOfEvent.push(formatData);
+
+  setItem('events', listOfEvent)
+
+  const currentDay = document.querySelector('.day-by-hours');
+  const currentDate = currentDay.dataset.dateOfDay;
+
+
+  renderDayCell(new Date(+currentDate));
+  createEvent()
   closePopUp();
 }
 
@@ -113,6 +128,7 @@ function isCorrect(){
 
   return true;
 }
+
 
 
 

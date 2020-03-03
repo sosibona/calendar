@@ -14,13 +14,14 @@ import { createEvent } from './createEvent.js';
 import { addClassCurentDate } from './navigationButton.js';
 import { startLine } from './countLineTime.js';
 import { greenwichTime } from './greenwichTime.js'
+import { setItem, getItem } from './storage.js';
 
 renderWeek();
 renderSidebar();
 renderDateForWeek(new Date());
 renderDayCell(new Date());
 getCurrentMonth();
-createEvent(events);
+createEvent();
 addClassCurentDate();
 startLine()
 greenwichTime(new Date());

@@ -1,6 +1,14 @@
-import { events } from './storage.js';
+// import { events } from './storage.js';
+import { setItem, getItem } from './storage.js';
 
-export function createEvent(listOfEvent){
+export function createEvent(){
+  
+  const listOfEvent = getItem('events') || [];
+
+  console.log(listOfEvent);
+
+  // renderDayCell(new Date(+week));
+  
   
   const days = [...document.querySelectorAll('.day-by-hours')]; // отримую поточний тиждень
   
@@ -8,26 +16,24 @@ export function createEvent(listOfEvent){
 
   for (let event of listOfEvent) {  //перепбираю всі івенти і перевіряю чи в цьому тижні, що на екрані 
   
-  const thisDays = days.find(elem => event.data.getTime() === +elem.dataset.dateOfDay); //знаходжу день для подї
+    const thisDays = days.find(elem => new Date(event.data).getTime() === +elem.dataset.dateOfDay); //знаходжу день для подї
 
+    if (!thisDays) {continue;} // якщо її тут немає, то переходжу до наступної
+    const thisDay = thisDays.children; //   стоврюю колекцію з годин в цьому дні
+    const thisHoursInThisDay = [...thisDay];
 
-  if (!thisDays) {continue;} // якщо її тут немає, то переходжу до наступної
-  const thisDay = thisDays.children; //   стоврюю колекцію з годин в цьому дні
-  
+    [getStartHour, getStartMinutes] = event.startEvent.split(':').map(elem => +elem); 
+    [getEndHour, getEndMinutes] = event.endEvent.split(':').map(elem => +elem);  
 
-  const thisHoursInThisDay = [...thisDay];
-  [getStartHour, getStartMinutes] = event.startEvent.split(':').map(elem => +elem); 
-  [getEndHour, getEndMinutes] = event.endEvent.split(':').map(elem => +elem);  
+    if (getStartHour > getEndHour) continue;
+    if (getStartHour === getEndHour && getStartMinutes > getEndMinutes) continue;
 
-  if (getStartHour > getEndHour) continue;
-  if (getStartHour === getEndHour && getStartMinutes > getEndMinutes) continue;
-
-  thisHoursInThisDay[getStartHour].innerHTML += //знаходжу клітинку в якій годині має початися івент
-    `<div data-id="${event.id}" class='event' style="${styleForEvent()}; background-color: #47d6dc">
-      <span>${event.startEvent} - ${event.endEvent}</span>
-      <span>${event.nameOfEvent}</span>
-      <span class="event__description">${event.description}</span>
-    </div>`;
+    thisHoursInThisDay[getStartHour].innerHTML += //знаходжу клітинку в якій годині має початися івент
+      `<div data-id="${event.id}" class='event' style="${styleForEvent()}; background-color: #47d6dc">
+        <span>${event.startEvent} - ${event.endEvent}</span>
+        <span>${event.nameOfEvent}</span>
+        <span class="event__description">${event.description}</span>
+      </div>`;
   }
   
   function styleForEvent(){    

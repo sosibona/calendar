@@ -1,4 +1,5 @@
-import { events } from './storage.js';
+// import { events } from './storage.js';
+import { setItem, getItem } from './storage.js';
 import { renderDayCell } from './renderDayCell.js'
 import { createEvent } from './createEvent.js'
 
@@ -28,12 +29,13 @@ export function onEvent(){
 
   modalDelete.style.display = 'flex';
 
-  for (let i = 0; i < events.length; i++) {
-    if (events[i].id === idEvent) {
-      eventTitle.innerHTML = events[i].nameOfEvent;
-      eventData.innerHTML = `${events[i].data.toString().substring(0,15)}, ${events[i].startEvent} - ${events[i].endEvent}`;
-      events[i].data.toLocaleDateString()
-      eventDescription.innerHTML = events[i].description;
+  const listOfEvent = getItem('events') || [];
+
+  for (let i = 0; i < listOfEvent.length; i++) {
+    if (listOfEvent[i].id === idEvent) {
+      eventTitle.innerHTML = listOfEvent[i].nameOfEvent;
+      eventData.innerHTML = `${new Date(listOfEvent[i].data).toLocaleDateString()}, ${listOfEvent[i].startEvent} - ${listOfEvent[i].endEvent}`;
+      eventDescription.innerHTML = listOfEvent[i].description;
       if (!eventDescription.textContent) eventDescription.innerHTML = 'No additional information';
     }
   }  
@@ -44,13 +46,16 @@ export function onEvent(){
   function isDelete(){
     const week = click.closest('.day-by-hours').dataset.dateOfDay;
   
-    for (let i = 0; i < events.length; i++) {
-    if (events[i].id === idEvent) {
-      events.splice(i, 1);
+    for (let i = 0; i < listOfEvent.length; i++) {
+    if (listOfEvent[i].id === idEvent) {
+      listOfEvent.splice(i, 1);
     }
-  }  
+  }
+  
+    setItem('events', listOfEvent);
+  
     renderDayCell(new Date(+week));
-    createEvent(events);
+    createEvent();
     closeModalDelete()
   }
 }

@@ -4,7 +4,8 @@ import { renderDayCell } from './renderDayCell.js'
 import { getWeek } from './getWeek.js'
 import { getCurrentMonth} from './getCurrentMonth.js'
 import {createEvent} from './createEvent.js'
-import { events } from './storage.js'
+// import { events } from './storage.js'
+// import { setItem, getItem } from './storage.js';
 import { startLine, timerId } from './countLineTime.js';
 
 const daysOfWeek = document.querySelectorAll('.navigation__days');
@@ -47,7 +48,7 @@ function toNextWeek(){
   const week = getWeek(nextWeekMonday);
   checkCurentWeek(week);
   getCurrentMonth();
-  createEvent(events);
+  createEvent();
 }
 
 function toPreviosWeek(){
@@ -58,7 +59,7 @@ function toPreviosWeek(){
 
   const week = getWeek(PreviosWeekMonday);
   getCurrentMonth();
-  createEvent(events);
+  createEvent();
   checkCurentWeek(week);
 }
 
