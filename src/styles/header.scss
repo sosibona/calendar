@@ -47,7 +47,6 @@
   &__setting {
     position: absolute;
     width: 350px;
-    height: 200px;
     background-color: aliceblue;
     top: 60px;
     right: 10px;
@@ -77,6 +76,13 @@
 
 .switch-setting {
   display: none;
+}
+
+.btn-setting {
+  width: 100px;
+  height: 30px;
+  background-color: #1a73e9;
+  border: none;
 }
 
 //Navigation

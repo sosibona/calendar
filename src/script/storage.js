@@ -6,6 +6,14 @@ export const getItem = (key) => {
   return JSON.parse(localStorage.getItem(key));
 }
 
+export const setMainColor = (key, value) => {
+  localStorage.setItem('color', JSON.stringify(value));
+}
+
+export const getMainColor = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+}
+
 // export const events = [
 //   { 
 //     nameOfEvent: 'Meet with friends',
