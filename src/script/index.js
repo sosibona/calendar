@@ -14,7 +14,7 @@ import { addClassCurentDate } from './navigationButton.js';
 import { startLine } from './countLineTime.js';
 import { greenwichTime } from './greenwichTime.js'
 import { setItem, getItem } from './storage.js';
-import { showSetting } from './changeColor.js'
+// import { showSetting } from './changeColor.js'
 
 renderWeek();
 renderSidebar();

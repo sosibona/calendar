@@ -24,18 +24,18 @@
 }
 
 .event{
-  background-color: #1a73e9;
-    height: inherit;
-    width: 95%;
-    position: relative;
-    top: 0;
-    text-align: center;
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    border: 1px solid blue;
-    cursor: pointer;
+  background-color: #47d6dc;
+  height: inherit;
+  width: 95%;
+  position: relative;
+  top: 0;
+  text-align: center;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid blue;
+  cursor: pointer;
 
   &:hover{
     z-index: 6;

@@ -68,6 +68,11 @@
     color: #999;
   }
 
+  &__additional {
+    display: flex;
+    align-items: center;
+  }
+
   &__additional-info {
     display: flex;
     margin-top: 60px;

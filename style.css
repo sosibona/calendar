@@ -59,6 +59,10 @@
   font-size: 24px;
   color: #999;
 }
+.create-event__additional {
+  display: flex;
+  align-items: center;
+}
 .create-event__additional-info {
   display: flex;
   margin-top: 60px;
@@ -161,11 +165,13 @@
   display: none;
 }
 
-.btn-setting {
+.header-btn {
   width: 100px;
   height: 30px;
   background-color: #1a73e9;
   border: none;
+  color: #fff;
+  margin-right: 10px;
 }
 
 .navigation {
@@ -393,7 +399,7 @@
 }
 
 .event {
-  background-color: #1a73e9;
+  background-color: #47d6dc;
   height: inherit;
   width: 95%;
   position: relative;

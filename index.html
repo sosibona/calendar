@@ -41,7 +41,10 @@
           <i class="create-event__additional-info-icon fas fa-stream"></i>
           <textarea class="create-event__additional-info-text" name="description" id="info" cols="30" rows="5" placeholder="Additional informations"></textarea>
         </div>
-      <button class="create-event__button" type="submit">Save</button>
+        <div class="create-event__additional">
+          <input type="color" id="event" name="eventColor" value="#47d6dc">
+          <button class="create-event__button" type="submit">Save</button>
+        </div>
     </form>
     <!-- </div> -->
     </div>
@@ -82,8 +85,9 @@
             <input type="color" id="textEvents" name="textEvents" value="#000000">
             <label for="textEvents">Text Events</label>
           </div>
-          <div>
-            <button class="btn-setting">Save</button>
+          <div class="header__setting-btn">
+            <button class="header-btn btn-setting">Save</button>
+            <button class="header-btn btn-setting-default">Default</button>
           </div>
         </div>
       </div>
