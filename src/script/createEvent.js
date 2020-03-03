@@ -1,17 +1,9 @@
-// import { events } from './storage.js';
 import { setItem, getItem } from './storage.js';
 
 export function createEvent(){
   
-  const listOfEvent = getItem('events') || [];
-
-  console.log(listOfEvent);
-
-  // renderDayCell(new Date(+week));
-  
-  
+  const listOfEvent = getItem('events') || [];  
   const days = [...document.querySelectorAll('.day-by-hours')]; // отримую поточний тиждень
-  
   let getStartHour, getStartMinutes, getEndHour, getEndMinutes;
 
   for (let event of listOfEvent) {  //перепбираю всі івенти і перевіряю чи в цьому тижні, що на екрані 

@@ -3,7 +3,6 @@ import { renderDayCell } from './renderDayCell.js';
 import { renderDateForWeek } from './renderDate.js';
 import { getCurrentMonth } from './getCurrentMonth.js';
 import { createEvent} from './createEvent.js';
-// import { events } from './storage.js';
 import { startLine } from './countLineTime.js';
 
 const btnCurrentWeek = document.querySelector('.header__today');

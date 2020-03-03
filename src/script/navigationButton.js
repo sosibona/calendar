@@ -4,8 +4,6 @@ import { renderDayCell } from './renderDayCell.js'
 import { getWeek } from './getWeek.js'
 import { getCurrentMonth} from './getCurrentMonth.js'
 import {createEvent} from './createEvent.js'
-// import { events } from './storage.js'
-// import { setItem, getItem } from './storage.js';
 import { startLine, timerId } from './countLineTime.js';
 
 const daysOfWeek = document.querySelectorAll('.navigation__days');
