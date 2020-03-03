@@ -6,9 +6,11 @@ const eventForDelete = document.querySelector('.current-week');
 const modalDelete = document.querySelector('.modal-delete');
 const modalDeleteClose = document.querySelector('.modal-delete__icon-close');
 const btnDeleteEvent = document.querySelector('.modal-delete__btn-delete-event');
+const btnChangeColor = document.querySelector('.modal-delete__btn-change-color');
 const eventTitle = document.querySelector('.modal-delete__title');
 const eventData = document.querySelector('.modal-delete__time');
 const eventDescription = document.querySelector('.modal-delete__info');
+const colorPickerElem = document.querySelector('#eventColor');
 
 eventForDelete.addEventListener('click', onEvent);
 
@@ -34,11 +36,13 @@ export function onEvent(){
       eventData.innerHTML = `${new Date(listOfEvent[i].data).toLocaleDateString()}, ${listOfEvent[i].startEvent} - ${listOfEvent[i].endEvent}`;
       eventDescription.innerHTML = listOfEvent[i].description;
       if (!eventDescription.textContent) eventDescription.innerHTML = 'No additional information';
+      colorPickerElem.value = listOfEvent[i].eventColor;
     }
   }  
 
   modalDeleteClose.addEventListener('click', closeModalDelete);
   btnDeleteEvent.addEventListener('click', isDelete);
+  btnChangeColor.addEventListener('click', onChangeColor);
 
   function isDelete(){
     const week = click.closest('.day-by-hours').dataset.dateOfDay;
@@ -46,6 +50,23 @@ export function onEvent(){
     for (let i = 0; i < listOfEvent.length; i++) {
     if (listOfEvent[i].id === idEvent) {
       listOfEvent.splice(i, 1);
+    }
+  }
+  
+    setItem('events', listOfEvent);
+  
+    renderDayCell(new Date(+week));
+    createEvent();
+    closeModalDelete()
+  }
+
+  function onChangeColor(){
+
+    const week = click.closest('.day-by-hours').dataset.dateOfDay;
+  
+    for (let i = 0; i < listOfEvent.length; i++) {
+    if (listOfEvent[i].id === idEvent) {
+      listOfEvent[i].eventColor = colorPickerElem.value;
     }
   }
   

@@ -1,3 +1,5 @@
+
+
 // import { setColor, getColor } from './storage.js'
 
 // const settingElem = document.querySelector('.header__setting-icon');

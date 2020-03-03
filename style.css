@@ -166,12 +166,12 @@
 }
 
 .header-btn {
-  width: 100px;
   height: 30px;
   background-color: #1a73e9;
   border: none;
   color: #fff;
-  margin-right: 10px;
+  margin-left: 10px;
+  text-transform: uppercase;
 }
 
 .navigation {
@@ -444,6 +444,12 @@
   left: -45px;
   background-color: red;
   color: #fff;
+}
+
+.change-color {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -26,6 +26,17 @@ addClassCurentDate();
 startLine()
 greenwichTime(new Date());
 
+const onStorageChange = e => {
+  if (e.key === 'events') {
+    const week = document.querySelector('.day-by-hours').dataset.dateOfDay;
+    
+    renderDayCell(new Date(+week));
+    createEvent();
+  }
+}
+
+window.addEventListener('storage', onStorageChange)
+
 
 
 
