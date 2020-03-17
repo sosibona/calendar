@@ -14,6 +14,7 @@ import { addClassCurentDate } from './navigationButton.js';
 import { startLine } from './countLineTime.js';
 import { greenwichTime } from './greenwichTime.js'
 import { setItem, getItem } from './storage.js';
+import { getEvents } from './tasks.js';
 // import { showSetting } from './changeColor.js'
 
 renderWeek();
@@ -25,6 +26,14 @@ createEvent();
 addClassCurentDate();
 startLine()
 greenwichTime(new Date());
+
+document.addEventListener('DOMContentLoaded', () => {
+  getEvents()
+    .then(events => {
+      setItem('events', events)
+      createEvent();
+    })
+});
 
 const onStorageChange = e => {
   if (e.key === 'events') {

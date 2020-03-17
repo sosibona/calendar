@@ -402,7 +402,7 @@
   background-color: #47d6dc;
   height: inherit;
   width: 95%;
-  position: relative;
+  position: absolute;
   top: 0;
   text-align: center;
   z-index: 5;

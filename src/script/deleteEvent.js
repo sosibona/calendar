@@ -1,6 +1,7 @@
 import { setItem, getItem } from './storage.js';
 import { renderDayCell } from './renderDayCell.js'
 import { createEvent } from './createEvent.js'
+import { updateEvent, getEvents, deleteEvent } from './tasks.js'
 
 const eventForDelete = document.querySelector('.current-week');
 const modalDelete = document.querySelector('.modal-delete');
@@ -21,11 +22,10 @@ export function onEvent(){
   const isEventClose = click.closest('.event');
   
   if (!isEventClose) {
-    return
+    return;
   }
 
   idEvent = isEventClose.dataset.id;
-
   modalDelete.style.display = 'flex';
 
   const listOfEvent = getItem('events') || [];
@@ -46,39 +46,50 @@ export function onEvent(){
 
   function isDelete(){
     const week = click.closest('.day-by-hours').dataset.dateOfDay;
-  
-    for (let i = 0; i < listOfEvent.length; i++) {
-    if (listOfEvent[i].id === idEvent) {
-      listOfEvent.splice(i, 1);
-    }
-  }
-  
-    setItem('events', listOfEvent);
-  
-    renderDayCell(new Date(+week));
-    createEvent();
-    closeModalDelete()
+
+    deleteEvent(idEvent)
+      .then(() => getEvents())
+      .then(events => {
+        setItem('events', events);
+        renderDayCell(new Date(+week));
+        createEvent();
+        closeModalDelete()
+      })
   }
 
   function onChangeColor(){
 
     const week = click.closest('.day-by-hours').dataset.dateOfDay;
-  
-    for (let i = 0; i < listOfEvent.length; i++) {
-    if (listOfEvent[i].id === idEvent) {
-      listOfEvent[i].eventColor = colorPickerElem.value;
+    const events = getItem('events');
+    const thisEvent = events.find(event => event.id === idEvent);
+    const {nameOfEvent, data, startEvent, endEvent, description, id} = thisEvent;
+
+    const updateEventColor = {
+      nameOfEvent,
+      data,
+      startEvent,
+      endEvent,
+      description,
+      id,
+      eventColor: colorPickerElem.value,
     }
+
+    updateEvent(idEvent, updateEventColor)
+      .then(() => getEvents())
+      .then(events => {
+        setItem('events', events);
+        renderDayCell(new Date(+week));
+        createEvent();
+        closeModalDelete();            
+      })
   }
-  
-    setItem('events', listOfEvent);
-  
-    renderDayCell(new Date(+week));
-    createEvent();
-    closeModalDelete()
+
+  function closeModalDelete(){
+    btnDeleteEvent.removeEventListener('click', isDelete);
+    btnChangeColor.removeEventListener('click', onChangeColor);
+    modalDelete.style.display = 'none';
   }
 }
 
-function closeModalDelete(){
-  modalDelete.style.display = 'none';
-}
+
 
