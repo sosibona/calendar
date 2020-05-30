@@ -57,7 +57,6 @@ btnCreateEvent.addEventListener('click', addEvent);
 function isCorrect(){
   const nameEvent = document.querySelector('.create-event__name');
   const calendarEvent = document.querySelector('.calendar-data');
-  // console.log(calendarEvent.value);
   const startTimeEvent = document.querySelector('.startTime');
   const endTimeEvent = document.querySelector('.endTime');
   const error = document.querySelector('.modal-form__error');

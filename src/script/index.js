@@ -15,7 +15,6 @@ import { startLine } from './countLineTime.js';
 import { greenwichTime } from './greenwichTime.js'
 import { setItem, getItem } from './storage.js';
 import { getEvents } from './tasks.js';
-// import { showSetting } from './changeColor.js'
 
 renderWeek();
 renderSidebar();

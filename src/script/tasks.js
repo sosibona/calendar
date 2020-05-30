@@ -1,4 +1,4 @@
-const urlServerApi = 'https://5e6b6f91d708a000160b48ba.mockapi.io/api/v1/events';
+const urlServerApi = 'https://5e6b6f91d708a000160b48ba.mockapi.io/api/v1/events2';
 
 export const getEvents = () => {
   return fetch(urlServerApi)
@@ -49,11 +49,4 @@ export const deleteEvent = eventId => {
   return fetch(`${urlServerApi}/${eventId}`, {
     method: 'DELETE',
   })
-  // .then(response => {
-  //   if (response.ok) {
-  //     return response.json()
-  //   }
-  //   throw new Error('Internal Server Error delete');
-  // })
-  // .catch((error => alert(error)));
 };

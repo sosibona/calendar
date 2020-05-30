@@ -240,7 +240,7 @@
   display: block;
 }
 
-.horizontal-efect {
+/* .horizontal-efect {
   display: flex;
   margin-left: 95px;
   margin-right: 20px;
@@ -254,7 +254,7 @@
 }
 .horizontal-efect span:last-child {
   border-right: 1px solid #ccc;
-}
+} */
 
 .greenwich-zone {
   position: absolute;
